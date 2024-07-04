@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="loader"></div>
+    <div id="main">
+      <nav>
+        <div class="logo">
+          <img src="./asset/company_logo.png" alt="logo" />
+        </div>
+        <div id="nav-part1">
+          <h4>Home</h4>
+          <h4>Modular Attachments</h4>
+          <h4>Scooters</h4>
+          <h4>Contacts</h4>
+        </div>
+        <div id="nav-part2">
+          <svg
+            width="46"
+            height="46"
+            viewBox="0 0 46 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <circle cx="23" cy="23" r="23" fill="black" />
+            <rect
+              x="4"
+              y="5"
+              width="37"
+              height="37"
+              fill="url(#pattern0_6_21)"
+            />
+            <defs>
+              <pattern
+                id="pattern0_6_21"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+                height="1"
+              >
+                <use xlink:href="#image0_6_21" transform="scale(0.01)" />
+              </pattern>
+              <image
+                id="image0_6_21"
+                width="100"
+                height="100"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFIUlEQVR4nO2dW4hVVRjHl5ZoVoJCZakQPaQVYSZF1IOVFV3ooYKIHgp6CLqMEUgPimFFdoEg6iW7SPUSFRZ0ofQptLSaMV8myiwvSHRXFMvpor/4ON/AYc1ae86ZWWvP2Xt/Pzgw7H3O+q/9rb33un3fN84ZhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEY6QFmAjcDzwAfAYPAbv0M6jE5d5N819ogE8AVwDvA33TOELAeuNwaJl1DLAI+ZfxsAi6whhl7QxwHPAL8Rzr+BVZL2dYw3TXGScDHHRr5D+07BvXvTpB+5kRrlM4bY2uBMfcDLwE3AtMDv5+u514GDhSUs0W0rFGKG+N4YEPEgH8BT3UzctIR2dPAkYInxV5fBQZ8PGK474AFY72bgXOAnZGyHx1rubUGuBg4GhkdzUpQ/iwty0cGDYvTXEVNACYBXwaMtSPl5E5fYVKmz9ZUGrUAuD5gpMPA/AxaC7Rsn2tTa1UW7VxLe7cDj41Qgw9z6VUK4PTA5O9X4OSMmjNUw580nuqaDnBH4G59tgTd5wK6t7umA7wYMMyVJeguDei+4JpOYOFwSCaIJehOCawcb3JNB9jnGWV3idp7PO29rukABz2jfFaitqxntXPANR3gkGeUzSVqb/a0D7qmA/zoGeX7ErV/8LT3uaYDfO4Z5U9gcgm6kwOrwFtc0wFeZSSXlKB7aUB3nWs6wN0BwzxRgq7sk/jc5ZoOcCZwzDPMXmBqRs2pqtGO1GFeLs1KERjtCA9m1FvOSD7JpVc5gNsCBvpdFh4zaJ0RcYa4NbVW1V1+vg0YSUZg0xLqTAO+COh8XcbIrlIA1xDm7RT9ifYbUlaIpWmuombQct0JIUscs8e55xJzLVqb9ipqBHACsC1iuF+A+2SVtssV3fsDm1HD9Itm3quqOMBp6vYTQ9x5VgELC8pYqN+Juf6gzg62Q9hFo3zF6PwGbAc+0M92PTYaA6KR8kaqPbRcQteRnldCLqhGdy5COxM0hLwGrzPDp3lapgB3aifcLf3qSJF9W7iRAPOBB3ROMehtcB3SY3JuGXD2RNfXMAzDMAzDMLoEmKvL9H2y7w68DrzVtnQif7+m5/r0u3PN0IkA5gH36rzi53HM0n/SxrrH9s3HFgu4TBcAc3BMZ+99KWIXawswB3i+IIQ5B0c0TmTORF9/zyB7EsCTGoc+UUhYwtpG9zeaJGBlF0/EfmAjsAa4RUKZgbOGo3Q1knemHlus31mjv5HfdoLUZUXjFiKB8yJh0D57NHvDogSaF6q3oh8TEkI8U851dUfv4oc0SirGUeAN9b2dlKkOlwFvRhIVtD8ty3PUoZeSyqwfpSHeLzOnlTwFOpcpSgEldZrharhHLvvdMQaKnBZyo04RMW8X9Nwprkaz65BX4vDoZlU3rj2ZdyUfBv6J1PWbyg+PdUgbyi2CRi9N2FMRQ16ZwK6CRqnmkyKZGApeU/297IYDzC5YKdhWucRnOpKJ+dFuyJk2IxWSAlA79BDvVso5W/uFEO9VadJFa/Iqq8ghVrgqAFwU6RgHqph4kpbDnh+YOpysJnssZApn6ZBT265e7jM67FMkc7bPjpTxK8mRHFeBSsus/HxXcWjNVUJZtVe7Hh7ihpZEVrqaQLhvHOrJoTBwdWSIWJlOvMPJY8gr/yrXa8hd4uUyHOrFiV+iV1f73s3hno0zAZZIeLGmY73B1fs/NWzUOdWSia6PYRiGYRiGYRiGYRiGYRiGYRiuiP8BUdEPoBvc/sYAAAAASUVORK5CYII="
+              />
+            </defs>
+          </svg>
+          <svg
+            width="49"
+            height="49"
+            viewBox="0 0 49 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <circle cx="23" cy="23" r="23" fill="black" />
+            <path
+              d="M48.5 40C48.5 44.1421 45.1421 47.5 41 47.5C36.8579 47.5 33.5 44.1421 33.5 40C33.5 35.8579 36.8579 32.5 41 32.5C45.1421 32.5 48.5 35.8579 48.5 40Z"
+              fill="#F14949"
+            />
+            <rect
+              x="8"
+              y="6"
+              width="29.8378"
+              height="34.3964"
+              fill="url(#pattern0_6_28)"
+            />
+            <defs>
+              <pattern
+                id="pattern0_6_28"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+                height="1"
+              >
+                <use
+                  xlink:href="#image0_6_28"
+                  transform="matrix(0.01 0 0 0.0086747 0 0.066265)"
+                />
+              </pattern>
+              <image
+                id="image0_6_28"
+                width="100"
+                height="100"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO3dT6hWRRjH8ces6A9ZJi2KCMsKalGUUIkpaIaZCwPtD2IgJkVQLkproUaJYogWZLmrjRhRYS0ikcooMq0kQcQiSKRFuriFf+iakvcbA3PgXdw57z3e97wz88zzgbP/zTv33POc+XdEjDHGGGOMMcYYY4wxxhjTJuB64DHg6fO4ngKmARe0GrIUwDPAGUbvO+CK2O3JGnAzcJbeeSN2m7IGLKa3DsduU9aAh3vcIeeAy2O3K1vAxcD+HnfK3bHblTXgauBt4ADwe4Prv0CHLIrdpiLV3FlrY2crErAt0CEHgdcLvF4D5gJjYnXIqh49c7T5KEqnAPNjtzxhs2N0yO2xW52w52KVzL18y9dkSd87xHfKL7Fbnqh7Y3XI9kCgP4EPlV97Am0fAsbF6pB1gVA/i3LA8kDb/4gZalEg1KD2+RHgvUDbd8QMNZmwG0Ux4IdAuzfGDHWZH+EdzlxRChgDnEyqwuoIdyQQbLkoBdyQXIXVEe7zQLB3RSlgTk2FdWXscJsC4b4XpUixwuoItzQQ7oQoRYoVVke4qYRdKwoBe5OrsDrCja/pkAdEZ4V1IskKqwIcS2bUM26FdZ+kAPg6EPAdUYaUK6wKsCUQcpcoA7yYbIVVAZ4PhDwmypByhVVxD2/CJkgZFdYmSQVwXU2HTBVdFdbxpCusCvB3IOhSUYIcKqxKzQxaOrfyKAEPJV9hVdxgYvIPu1ECXki+wqoAKwJhj4gSwM5s/uj8MsrQ7Zz9FgXgcd+W4bwqqQFuIswN0b+c6bUS+LSmM5wpkhq3qAH4h/L8JKlqYfNP6tx6ghmSKuB9yrJGUgaspgxDbpGgpA5YgH4HgAclB122KPwK7Mvw+hH4DNgAzIy2Q+p8ABfVbFGYHztfkfydMJxVsbMVCfgk0CHbYmcrUs0WhUOxsxUJeKLmwX5/7HzF6TJ7eBR4xO1PjJ2zKMC31DvrZxhzuQ4Br7gqUpStXcrdm5IrYCv6DOZ8l1wKfIkuQ8nNnTcBXAJs7jK5k5PdooHfHPpBzb68HLgH+62iiR/rusMvp3k0o+uebJ8dxhhjjCkMMBFY6M+enwdcFfF4kDk+x5PAbVISYFLg9IczwFv9WnYKXOhPEj01TJbdwF2iHXAnMNDlBWxf219Z8O9DO7rkcKswZ4lWfhjl8Ajfire2nGX9CHO4ofdrRCPgWUZuqK3/5f6gg9MNsqwXjWpODQpZ0VIO9yWhJg6KRn5wroktLeVwWwyaGBSN3MGYDX+IjS3lWNYwx4BoVLMHkX5+9sJ/wKyJL0QjYHqDH2GgrZk5YCzwW4Mser+H0mCefXHLOWbXfJCm0y7Vx936efaPu+xIeqlPWdwwyb81Wb5xXx8S7fzxFG4fyVcd7wN/+Snevn6/CrjFP9vcAr5q+GaPP7ZwrJTI3TWSgFRyGGOMMcYYY4wxRhLwPwmip8T2ZZE6AAAAAElFTkSuQmCC"
+              />
+            </defs>
+          </svg>
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div class="hero1">
+          <h1>ADAPTIVE</h1>
+          <h1>SUSTAINABILITY</h1>
+          <h1>SOLUTIONS</h1>
+
+          <h2>BUILT TO <span>ADAPT.</span></h2>
+          <div class="btn">
+            <div>Book @999</div>
+            <div>Book Test Ride</div>
+          </div>
+          <div class="sale">
+            <h3>9000+<br /><span>Happy Customer</span></h3>
+            <h3>15000+<br /><span>Scooters sales </span></h3>
+          </div>
+        </div>
+        <div class="hero2">
+          <div class="bigCircle bc1">
+            <div class="smallCircle sc1"></div>
+          </div>
+          <div class="bike b1">
+            <img src="./asset/HeroBike01.png" alt="bike1" />
+          </div>
+          <div class="bike1 i1 info">
+            Top speed <span><br />25 kmph</span>
+          </div>
+          <div class="bike1 i2 info">
+            Range <span><br />70 km</span>
+          </div>
+          <div class="bike1 i3 info">
+            Load capacity <span><br />120 kgs</span>
+          </div>
+
+          <div class="bigCircle bc2">
+            <div class="smallCircle sc2"></div>
+          </div>
+          <div class="bike b2">
+            <img src="./asset/Hero_Bike02.png" alt="bike2" />
+          </div>
+          <div class="bike2 i1 info">
+            Top speed <span><br />50 kmph</span>
+          </div>
+          <div class="bike2 i2 info">
+            Range <span><br />140 km</span>
+          </div>
+          <div class="bike2 i3 info">
+            Load capacity <span><br />200 kgs</span>
+          </div>
+          <div class="bike1"></div>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="msg">
+          <span>“</span><br />TO IMPACT 1 MILLION LIVES BY 2028
+        </div>
+        <div class="p1">
+          <div class="p1-part1">
+            <h1>Customize your Buddie</h1>
+            <div class="p1-img">
+              <img src="./asset/Carrier.png" alt="" id="Carrier" />
+              <img src="./asset/Flat_Rack.png" alt="" id="Flat_Rack" />
+              <img src="./asset/Hotkeep.png" alt="" id="Hotkeep" />
+              <img src="./asset/InsulatedBag.png" alt="" id="InsulatedBag" />
+              <img src="./asset/bag.png" alt="" id="bag" />
+              <img src="./asset/InsulatedBox.png" alt="" id="InsulatedBox" />
+            </div>
+            <h2 id="itemName">RM Buddie 25</h2>
+            <div class="p11">
+              <h3>
+                <span id="itemPrice">₹69,999</span><br /><span
+                  >Total Amount</span
+                >
+              </h3>
+              <button id="btn-1">Proceed</button>
+            </div>
+          </div>
+
+          <div class="p1-part2">
+            <img src="./asset/Blue_Seat.png" alt="" id="itemImage" />
+          </div>
+        </div>
+      </div>
+
+      <div class="page p2">
+        <div id="play">
+          <i class="ri-play-fill"></i>
+        </div>
+        <div id="video-container">
+          <video id="vid" src="./asset/video.mp4" autoplay loop muted></video>
+        </div>
+
+        <img src="./asset/bg.png" alt="bg" />
+        <h1>This is Where <br />the magic <br />happens</h1>
+      </div>
+
+      <div class="p3">
+        <h1 class="msg Discover">Discover Our RM Attachments</h1>
+        <div id="p3-part2">
+          <div class="container">
+            <div class="cards">
+              <div class="card">
+                <img src="./asset/Carrier.png" alt="Carrier" />
+                <div class="card-info">
+                  <h2>₹1,899</h2>
+                  <h5>₹2088</h5>
+                  <h5 id="off">10% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">4.8 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./asset/Flat_Rack.png" alt="Flat Rack" />
+                <div class="card-info">
+                  <h2>₹1,649</h2>
+                  <h5>₹1,978</h5>
+                  <h5 id="off">20% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">3.8 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./asset/bag.png" alt="Saddle Bags" />
+                <div class="card-info">
+                  <h2>₹3,750</h2>
+                  <h5>₹4,125</h5>
+                  <h5 id="off">10% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">4.1 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./asset/InsulatedBag.png" alt="InsulatedBag" />
+                <div class="card-info">
+                  <h2>₹2,099</h2>
+                  <h5>₹2,413</h5>
+                  <h5 id="off">15% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">4.5 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="cards">
+              <div class="card">
+                <img src="./asset/Carrier.png" alt="Carrier" />
+                <div class="card-info">
+                  <h2>₹1,899</h2>
+                  <h5>₹2088</h5>
+                  <h5 id="off">10% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">4.8 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./asset/Flat_Rack.png" alt="Flat Rack" />
+                <div class="card-info">
+                  <h2>₹1,649</h2>
+                  <h5>₹1,978</h5>
+                  <h5 id="off">20% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">3.8 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./asset/bag.png" alt="Saddle Bags" />
+                <div class="card-info">
+                  <h2>₹3,750</h2>
+                  <h5>₹4,125</h5>
+                  <h5 id="off">10% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">4.1 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./asset/InsulatedBag.png" alt="InsulatedBag" />
+                <div class="card-info">
+                  <h2>₹2,099</h2>
+                  <h5>₹2,413</h5>
+                  <h5 id="off">15% off</h5>
+                  <h3 id="rate">Rating & Reviews</h3>
+                  <h3 id="rating">4.5 <i class="ri-star-fill"></i></h3>
+                  <div id="addcart">
+                    <h4><i class="ri-heart-line"></i>WISHLIST</h4>
+                    <h4 id="cart">
+                      <i class="ri-shopping-cart-2-line"></i>ADD TO CART
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p4">
+        <div class="p4-part1">
+          <div class="p4B1">
+            <h1>Savings Calculator</h1>
+            <div class="p4B2">
+              <h1>Daily Distance Travel</h1>
+              <div class="slider-container">
+                <input
+                  type="range"
+                  class="distance-slider"
+                  class="slider"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="50"
+                />
+                <span class="slider-value">50</span>
+              </div>
+              <h1 id="running-cost">Running Cost</h1>
+              <div id="SCOOTER">
+                <h4>PETROL SCOOTER</h4>
+                <h5 id="petrol">₹ 75.00</h5>
+              </div>
+              <div id="SCOOTER">
+                <h4>REVAMP MOTO</h4>
+                <h5 id="revamp">₹ 8.50</h5>
+              </div>
+            </div>
+            <h2>Total Savings</h2>
+            <h3 id="total-savings">₹ 66.50</h3>
+          </div>
+        </div>
+        <div class="p4-part2">
+          <h1>
+            <span>Earn More</span><br />with Every Ride on<br />Revamp Moto
+            Bikes
+          </h1>
+          <div>
+            <h3>Annual Savings</h3>
+            <h2>₹25,000*</h2>
+            <h4>
+              Say goodbye to costly petrol scooters and hello toincreased
+              earnings with Revamp Moto bikes. Enjoy cost savings, eco-friendly
+              rides, and cutting-edge technology. Switch to Revamp Moto today
+              and boost your profits with every trip!
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="p5">
+        <div class="p5-part1">
+          <h1>Unleash Your Style with RM Buddie's<br />Dazzling Colors!</h1>
+          <p class="color-name">Billionaire Blue</p>
+          <div class="color-bar">
+            <span
+              class="dot"
+              style="
+                background-color: #4488c8;
+                border: 3px solid rgba(0, 0, 0, 0.454);
+              "
+              id="1"
+            ></span>
+            <span class="dot" style="background-color: #ef3a4f" id="2"></span>
+            <span class="dot" style="background-color: #76797b" id="3"></span>
+            <span class="dot" style="background-color: #e5e5e5" id="4"></span>
+            <span class="dot" style="background-color: #f57e35" id="5"></span>
+          </div>
+          <h2>
+            Meet the Pocket Rocket: <span id="bikeName">RM Buddie 25</span>
+          </h2>
+          <h2>Small Size, Big Thrills!</h2>
+          <div class="btn">
+            <div>Book @999</div>
+          </div>
+        </div>
+        <div class="p5-part2">
+          <img src="./asset/blue-buddie.png" alt="img" />
+        </div>
+      </div>
+
+      <div class="p4 p6">
+        <div class="p4-part1">
+          <div class="p4B1">
+            <h1>EMI Calculator</h1>
+            <div class="p4B2">
+              <h1>Down payment</h1>
+              <div class="slider-container">
+                <input
+                  type="range"
+                  class="distance-slider"
+                  class="slider"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="50"
+                />
+                <span class="slider-value">50</span>
+              </div>
+              <h1 id="month">Loan tenure (in months)</h1>
+              <div id="SCOOTER">
+                <h5 id="petrol">12</h5>
+                <h5 id="petrol">24</h5>
+                <h5 id="petrol">36</h5>
+                <h5 id="petrol">60</h5>
+              </div>
+              <div id="SCOOTER">
+                <h4>Interest Rate in %:</h4>
+                <h5 id="per12">12%</h5>
+              </div>
+              <div id="p6-p1">
+                <h1 id="sbi">SBI<br />12%</h1>
+                <h2 id="bajaj">Bajaj Finserv<br />0%</h2>
+              </div>
+            </div>
+            <h2 id="paytext">You will pay</h2>
+            <h3 id="pay">₹5,600 /month</h3>
+            <div class="BikeAtm">
+              <h4>Bike Price</h4>
+              <h4>₹70,000</h4>
+            </div>
+            <div class="loanAtm">
+              <h4>Loan Amount</h4>
+              <h4>₹60,000</h4>
+            </div>
+          </div>
+        </div>
+        <div class="p4-part2">
+          <h1>
+            Unlock Your<br />Dreams with Our<br /><span
+              >Financing Support!</span
+            >
+          </h1>
+          <div>
+            <h3>EMI Starting at just</h3>
+            <h2>₹2,200 /month</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="p7">
+        <div class="p7-part1">
+          <h1>
+            Revamp Moto<br />
+            in <span>Action:</span>
+          </h1>
+          <h4>
+            Hear Our Happy Customers<br />
+            Share Their Amazing Stories!
+          </h4>
+        </div>
+        <div class="p7-part2">
+          <div class="v1">
+            <video class="video1">
+              <source src="./asset/video1.mp4" type="video/mp4" />
+            </video>
+            <h1 class="v1_h1">Monaco topings business <br />on wheels</h1>
+            <h2 class="v1_h2">Ms. Pina Rawal</h2>
+          </div>
+          <div class="v2">
+            <video class="video2">
+              <source src="./asset/video2.mp4" type="video/mp4" />
+            </video>
+            <h1 class="v2_h1">
+              Idli Wada Business<br />
+              on wheels
+            </h1>
+            <h2 class="v2_h2">Idli Wada Sellers</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="p8">
+        <h2>Get All the Answers You Need</h2>
+        <h1>Explore Our FAQs!</h1>
+        <div class="p8-part1">
+          <div class="faq-container">
+            <div class="faq">
+              <div class="faq-question">
+                <p>
+                  Is Revamp Moto offering dealership or franchise opportunities
+                  for RM Buddie 25 and RM Mitra 02?
+                </p>
+                <span class="plus">+</span>
+                <span class="minus">×</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. a
+                  repudiandae dolorum ea eaque provident excepturi ab qui.
+                </p>
+                <!-- Answer conten-->
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-question">
+                <p>Can I rest assured with Service?</p>
+                <span class="plus">+</span>
+                <span class="minus">×</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, We serve 19000+ pincodes pan India. We also offer Road
+                  Side Assistance. Customers can reach out to 7057064444 from 10
+                  A.M. to 7 P.M. everyday.
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-question">
+                <p>
+                  Are there any accessories & attachments available for
+                  customising my RM Buddie 25?
+                </p>
+                <span class="plus">+</span>
+                <span class="minus">×</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Soluta dolor ea voluptate doloribus! Dicta quis, fuga
+                  reiciendis voluptatem ab enim possimus doloremque minima velit
+                  mollitia architecto ad cumque laborum saepe.
+                </p>
+                <!-- Answer content here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer1">
+          <div class="footer-text">
+            <h1>Ready to go green?</h1>
+            <h2>
+              Find the eco-friendly electric bike that matches your<br />values
+              and preferences!
+            </h2>
+          </div>
+          <div class="footer-ip">
+            <input type="text" placeholder="Enter your email" /><label
+              >Get started</label
+            >
+          </div>
+        </div>
+        <div class="footer2">
+          <img src="./asset/company_logo.png" alt="logo" />
+          <div class="ft1 ft">
+            <h2>PRODUCTS</h2>
+            <h3>RM Buddie 25</h3>
+            <h3>RM Mitra 02</h3>
+            <h3>Attachments</h3>
+          </div>
+          <div class="ft2 ft">
+            <h2>COMPANY</h2>
+            <h3>About</h3>
+            <h3>B2B</h3>
+            <h3>Careers</h3>
+          </div>
+          <div class="ft3 ft">
+            <h2>LEARN MORE</h2>
+            <h3>Customise your Buddie</h3>
+            <h3>Blog</h3>
+            <h3>Contact</h3>
+          </div>
+          <div class="ft4 ft">
+            <h2>LEGAL</h2>
+            <h3>Privacy Policy</h3>
+            <h3>Terms Of Use</h3>
+            <h3>Shipping, Refund &</h3>
+            <h3>Return Policy</h3>
+            <h3>Contact Us Policy</h3>
+          </div>
+        </div>
+        <hr />
+        <div class="footer3">
+          <h3>Copyright Revamp Moto 2024. All Rights Reserved.</h3>
+          <img src="./asset/makeindia.png" alt="" />
+          <div class="f3">
+            <i class="ri-facebook-box-fill ri-2x"></i>
+            <i class="ri-linkedin-box-fill ri-2x"></i>
+            <i class="ri-instagram-fill ri-2x"></i>
+            <i class="ri-youtube-fill ri-2x"></i>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+      integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/sheryjs/dist/Shery.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
